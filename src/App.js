@@ -3,7 +3,7 @@
  * @FilePath: \eleme_react\src\App.js
  * @Date: 2021-10-14 15:22:20
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-10-21 15:16:32
+ * @LastEditTime: 2021-10-26 14:31:52
  * @author: Lin_kangjing
  */
 import React, { Component } from "react";
@@ -52,12 +52,11 @@ class App extends Component {
   }
   // 选择底部的tab
   renderFooter() {
-    let {pathname} = this.props.location;
-    if(pathname==="/mine") return "";
+    // let {pathname} = this.props.location;
+    // if(pathname==="/mine") return "";
     return <AppFooter/>
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.renderNavs()} {this.renderFooter()}
