@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const path = require('path');
@@ -419,7 +419,8 @@ module.exports = function (webpackEnv) {
                         },
                       },
                     },
-                  ],
+                  ],                
+                  ["import", { libraryName: "antd-mobile", style: "css" }] ,
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
                     require.resolve('react-refresh/babel'),

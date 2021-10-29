@@ -1,11 +1,18 @@
-import React, { Component } from "react"
+import React, { PureComponent } from "react";
 
-class User extends Component {
+import CommonsGroup from "../../../modules/groug";
+
+class User extends PureComponent {
+  logout() {
+    this.props.logout();
+  }
   render() {
     return (
-      <div>User
+      <div>
+        <p><button onClick={()=> this.logout()}>退出</button></p>
+        <p>用户名为：{this.props.userInfo && this.props.userInfo.username}</p>
       </div>
     );
   }
 }
-export default User
+export default CommonsGroup(User) ;
