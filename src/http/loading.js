@@ -1,5 +1,15 @@
+/*
+ * @Description: 
+ * @FilePath: \eleme_react\src\http\loading.js
+ * @Date: 2021-10-25 15:36:20
+ * @LastEditors: Lin_kangjing
+ * @LastEditTime: 2021-11-02 15:20:57
+ * @author: Lin_kangjing
+ */
 
-import message from 'ant-design-vue/es/message'
+// import message from 'ant-design-vue/es/message'
+
+import { Toast } from "antd-mobile";
 // 全局loading
 const LoadingInstance = {
   _target: null, // 保存Loading实例
@@ -14,7 +24,7 @@ export function startLoading (config) {
   if (config.loading) {
     LoadingInstance._count++
     if (LoadingInstance._count === 1) {
-      LoadingInstance._target = message.loading('loading...', 0)
+      LoadingInstance._target = Toast.loading('loading...', 0)
     }
   }
 }

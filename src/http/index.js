@@ -1,9 +1,9 @@
 /*
  * @Description: 
- * @FilePath: \eleme_react\src\http\http.js
+ * @FilePath: \eleme_react\src\http\index.js
  * @Date: 2021-10-14 16:48:52
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-10-14 16:53:56
+ * @LastEditTime: 2021-11-02 17:21:30
  * @author: Lin_kangjing
  */
 import axios from './axios'
@@ -11,6 +11,7 @@ import Qs from 'qs'
 // import { filterNull, toType } from '@/utils/util'
 
 export function apiAxios (method, url, headers, params, setting) {
+  headers = headers || {}
   // if (params) {
   //   params = filterNull(params)
   // }
@@ -18,6 +19,7 @@ export function apiAxios (method, url, headers, params, setting) {
   //   headers = filterNull(headers)
   // }
 
+    console.log(headers);
   // 处理配置参数
   let config = {
     method: method,
@@ -81,12 +83,10 @@ export function formData (url, headers, params, setting) {
   headers['Content-Type'] = 'multipart/form-data'
   return apiAxios('POST', url, headers, params)
 }
-
-// 返回在vue模板中的调用接口
-export default {
-  // 如果想传的是json格式的数据，设置请求头为 application/json
+const http = {
   get,
   post,
   formData,
   axios: apiAxios
 }
+export default http

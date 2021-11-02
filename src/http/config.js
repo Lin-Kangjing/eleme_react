@@ -1,6 +1,15 @@
+/*
+ * @Description: 
+ * @FilePath: \eleme_react\src\http\config.js
+ * @Date: 2021-10-25 15:36:20
+ * @LastEditors: Lin_kangjing
+ * @LastEditTime: 2021-11-02 17:28:48
+ * @author: Lin_kangjing
+ */
 // axios配置
 export const axiosConfig = {
-  baseURL: process.env.VUE_APP_API_BASE_URL, // api base_url
+  // baseURL: process.env.VUE_APP_API_BASE_URL, // api base_url
+  baseURL: '/ele', // api base_url
   timeout: 120 * 1000 // 请求超时时间
 }
 // axios 自定义配置

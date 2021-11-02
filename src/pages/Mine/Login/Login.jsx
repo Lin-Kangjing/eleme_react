@@ -8,8 +8,12 @@ import "./Login.scss";
 class Login extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      title:'账号登录',
+      type:'user'
+    };
   }
+  // 登录
   login() {
     //登录 改变userInfo这个状态
     this.props.login({
@@ -23,6 +27,13 @@ class Login extends Component {
       },
     });
   }
+  // 登录方式切换
+  changeLoginType(){
+    this.setState({
+      title:this.state.type==='user'?'短信快捷登录':'账户密码登录',
+      type:this.state.type==='user'?'phone':'user',
+    })
+  }
   render() {
     return (
       <div>
@@ -32,12 +43,12 @@ class Login extends Component {
           onLeftClick={() => this.props.history.replace("/")}
           rightContent={[<Icon key="1" type="ellipsis" />]}
         >
-          NavBar
+          {this.state.title}
         </NavBar>
         <div className="content">
           <img src="https://shadow.elemecdn.com/faas/h5/static/logo.ba876fd.png" alt = "logo"/>
-          <LoginForm />
-          <p className="change-type">账户密码登录</p>
+          <LoginForm type={this.state.type} />
+          <p className="change-type" onClick={(e)=>this.changeLoginType()} >{this.state.type==='user'?'短信快捷登录':'账户密码登录'} </p>
         </div>
       </div>
     );

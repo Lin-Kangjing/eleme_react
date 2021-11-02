@@ -5,31 +5,34 @@ import { Toast } from "antd-mobile";
 class LoginForm extends Component {
   constructor(props){
     super(props);
+    this.username =null
+    this.password = null
     this.state = {
-      user:'',
-      password:'',
       userPlaceholder:props.type==='phone'?'手机号：123':'请输入用户名',
       passwordPlaceholder:props.type==='phone'?'code：123':'密码：123'
     } 
   }
-  static getDerivedStateFromProps(props,state){
+  static getDerivedStateFromProps(props){
     return {
-      ...state,
       userPlaceholder:props.type==='phone'?'手机号：123':'请输入用户名',
       passwordPlaceholder:props.type==='phone'?'code：123':'密码：123'
     }
   }
   handleSubmit = (e) => {
-    this.props.loginByText({
-      phone: this.phone.value,
-      code: this.code.value,
+    let login = this.props.login
+    if(this.props.type==='phone'){
+      login = this.props.loginPhone
+    }
+    login({
+      username: this.username.value,
+      password: this.password.value,
       success: (data) => {
         Toast.success(data, 1);
       },
       fail: (err) => {
-        Toast.fail(err, 1, () => {
-          this.code.value = "";
-          this.code.focus();
+        Toast.fail(`${err} 登录失败！`, 1, () => {
+          this.password.value = "";
+          this.password.focus();
         });
       },
     });
@@ -40,14 +43,14 @@ class LoginForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <input
-            ref={(el) => (this.phone = el)}
+            ref={(el) => (this.username = el)}
             type="text"
             placeholder={this.state.userPlaceholder}
           />
         </div>
         <div className="form-group">
           <input
-            ref={(el) => (this.code = el)}
+            ref={(el) => (this.password = el)}
             type="text"
             placeholder={this.state.passwordPlaceholder}
           />

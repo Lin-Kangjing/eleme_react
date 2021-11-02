@@ -9,9 +9,6 @@ class Mine extends PureComponent {
   componentDidMount() {
     this.checkUserInfo();
   }
-  // static getDerivedStateFromProps(nextProps) {
-
-  // }
   componentDidUpdate(prevProps) {
     const { userInfo } = prevProps;
     if(userInfo !== this.props.userInfo || this.props.location.pathname==="/mine") {
