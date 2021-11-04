@@ -22,6 +22,7 @@
     "redux": "^4.1.1",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
+    "swiper": "^7.2.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -48,6 +49,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://119.45.129.219:8088",
   "devDependencies": {
     "babel-plugin-import": "^1.13.3",
     "eslint-plugin-prettier": "^4.0.0",

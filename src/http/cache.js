@@ -1,6 +1,14 @@
+/*
+ * @Description: 
+ * @FilePath: \eleme_react\src\http\cache.js
+ * @Date: 2021-10-25 15:36:20
+ * @LastEditors: Lin_kangjing
+ * @LastEditTime: 2021-11-03 11:57:46
+ * @author: Lin_kangjing
+ */
 
 import axios from 'axios'
-import { getPendingKey, customConfig, STATUS_CODE } from './config'
+import { getPendingKey, customConfig } from './config'
 // 初始化
 (function () {
   const cache = window.localStorage.getItem(customConfig.cacheStorageKey)
@@ -68,7 +76,7 @@ export function requestInterceptor (config) {
 
 export function responseInterceptor (response) {
   // 返回的code === 200 时候才会缓存下来
-  if (response && response.config.cache && response.data[STATUS_CODE] === 0) {
+  if (response && response.config.cache && response.data[customConfig.statusCode] === customConfig.successCodeValue) {
     const data = {
       expire: getNowTime(),
       data: response

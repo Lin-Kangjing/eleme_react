@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CommonsGroup from "../../../modules/groug";
+import CommonsGroup from "../../../modules/group";
 // import  GroupState  from "../../../../modules/group"
 import { Toast } from "antd-mobile";
 class LoginForm extends Component {

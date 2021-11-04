@@ -3,7 +3,7 @@
  * @FilePath: \eleme_react\src\http\index.js
  * @Date: 2021-10-14 16:48:52
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-11-02 17:21:30
+ * @LastEditTime: 2021-11-03 11:51:27
  * @author: Lin_kangjing
  */
 import axios from './axios'
@@ -19,7 +19,6 @@ export function apiAxios (method, url, headers, params, setting) {
   //   headers = filterNull(headers)
   // }
 
-    console.log(headers);
   // 处理配置参数
   let config = {
     method: method,

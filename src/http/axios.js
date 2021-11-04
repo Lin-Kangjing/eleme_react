@@ -5,7 +5,7 @@ import axios from 'axios'
 // import { ACCESS_TOKEN } from '@/store/mutation-types'
 // import message from 'ant-design-vue/es/message'
 import { Toast } from "antd-mobile";
-import { axiosConfig, customConfig, getPendingKey, STATUS_CODE } from './config'
+import { axiosConfig, customConfig, getPendingKey } from './config'
 import { requestInterceptor as cacheReqInterceptor, responseInterceptor as cacheResInterceptor } from './cache'
 import { startLoading, closeLoading } from './loading'
 // 取消重复请求的map
@@ -119,7 +119,7 @@ service.interceptors.response.use(
     // 关闭loading
     closeLoading(response.config)
     // 开启code!==0的错误提示
-    if (response.config.codeMessageShow && response.data && response.data[STATUS_CODE] !== 0) {
+    if (response.config.codeMessageShow && response.data && response.data[customConfig.statusCode] !== customConfig.successCodeValue) {
       Toast.info(response.data.message)
       return Promise.reject(response.data)
     }

@@ -3,7 +3,7 @@
  * @FilePath: \eleme_react\src\index.js
  * @Date: 2021-10-14 15:22:20
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-10-29 10:09:06
+ * @LastEditTime: 2021-11-04 10:18:36
  * @author: Lin_kangjing
  */
 import React from "react";
@@ -14,19 +14,18 @@ import store from "./store";
 import App from "./App";
 // import reportWebVitals from "./reportWebVitals";
 
-
 // 使用rem.js
 import "./modules/rem";
 // 引入通用样式
 import "./stylesheets/main.scss";
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <Router>
         <App />
       </Router>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 

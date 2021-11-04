@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-import CommonsGroup from "../../../modules/groug";
+import CommonsGroup from "../../../modules/group";
 
 class User extends PureComponent {
   logout() {

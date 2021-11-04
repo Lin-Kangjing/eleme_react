@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavBar, Icon } from "antd-mobile";
 // import LoginTextForm from './LoginTextForm';
 import LoginForm from "./LoginForm";
-import CommonsGroup from "../../../modules/groug";
+import CommonsGroup from "../../../modules/group";
 import "./Login.scss";
 
 class Login extends Component {

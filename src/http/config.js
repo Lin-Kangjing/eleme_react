@@ -3,13 +3,13 @@
  * @FilePath: \eleme_react\src\http\config.js
  * @Date: 2021-10-25 15:36:20
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-11-02 17:28:48
+ * @LastEditTime: 2021-11-03 11:58:19
  * @author: Lin_kangjing
  */
 // axios配置
 export const axiosConfig = {
-  // baseURL: process.env.VUE_APP_API_BASE_URL, // api base_url
-  baseURL: '/ele', // api base_url
+  baseURL: process.env.REACT_APP_BASE_URL, // api base_url
+  // baseURL: '/ele', // api base_url
   timeout: 120 * 1000 // 请求超时时间
 }
 // axios 自定义配置
@@ -24,10 +24,11 @@ export const customConfig = {
   cancelRequest: true, // 是否开启取消重复请求,
   loading: false, // 是否开启loading层效果,
   errorMessageShow: true, // 是否开启接口错误信息展示
-  codeMessageShow: true // 是否开启code不为0时的信息提示
+  codeMessageShow: true, // 是否开启code不正确时的信息提示
+  successCodeValue:'1', //code的值等于successCode,返回的结果才是正确的
+  statusCode:'status'//code 的key 为statusCode
+  
 }
-// 判断请求成功的字段
-export const STATUS_CODE = 'code'
 
 /**
 * 生成每个请求唯一的键

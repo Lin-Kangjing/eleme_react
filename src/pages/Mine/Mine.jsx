@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { Route } from "react-router-dom";
 import Login from "./Login/Login.jsx";
 import User from "./User/User.jsx";
-import CommonsGroup from "../../modules/groug";
+import CommonsGroup from "../../modules/group";
 import "./Mine.scss";
 
 class Mine extends PureComponent {
