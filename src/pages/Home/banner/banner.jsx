@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { NavLink } from "react-router-dom";
 import { Carousel } from "antd-mobile";
 import { get } from "../../../http/index";
-import "./banner.scss";
+import "./Banner.scss";
 class Banner extends PureComponent {
   constructor(props) {
     super(props);
@@ -30,7 +30,6 @@ class Banner extends PureComponent {
     });
   }
   render() {
-    console.log(123);
     return (
       <div className="home-banner btn_banners">
         <Carousel

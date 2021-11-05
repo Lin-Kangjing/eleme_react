@@ -6,7 +6,7 @@ import CommonsGroup from "../../modules/group";
 import "./Mine.scss";
 
 class Mine extends PureComponent {
-  componentDidMount() {
+  componentDidMount() {  
     this.checkUserInfo();
   }
   componentDidUpdate(prevProps) {
