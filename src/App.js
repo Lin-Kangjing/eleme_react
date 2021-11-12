@@ -3,7 +3,7 @@
  * @FilePath: \eleme_react\src\App.js
  * @Date: 2021-10-14 15:22:20
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-11-11 17:23:57
+ * @LastEditTime: 2021-11-12 17:11:38
  * @author: Lin_kangjing
  */
 import React, { Component } from "react";
@@ -13,28 +13,28 @@ import AppFooter from "./components/AppFooter/index.jsx";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount() {
-    console.log(0);
-    // this.replaceRouter();
-  }
+  // componentDidMount() {
+  //   console.log(0);
+  //   // this.replaceRouter();
+  // }
   // componentDidUpdate() {
   //   console.log(2);
   //   this.replaceRouter();
   // }
-  componentWillReceiveProps() {
-    console.log(2,);
-    this.replaceRouter();
+  componentWillReceiveProps(props) {
+    console.log(2, props.location.pathname);
+    this.replaceRouter(props);
   }
   // 路由重定向
-  replaceRouter() {
-    const props = this.props;
-    console.log(3,props.location.pathname);
+  replaceRouter(props) {
+    props = props || this.props;
     let { pathname } = props.location;
     let { replace } = props.history;
+    console.log(3,this.props.location.pathname,pathname,)
     if (pathname === "/find") {
       replace("/find/coin");
     } else if (pathname === "/") {
-      replace("/mine");
+      replace("/home");
     }
   }
   // 选择底部的tab
