@@ -1,21 +1,23 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { NavLink } from "react-router-dom";
 import "./index.scss";
 
-class AppFooter extends Component {
-  renderFooter() {
-    let { navs } = this.props;
-    return navs.map((item) => {
-      return (
-        <NavLink key={item.id} to={item.path} exact={item.exact}>
-          <i className={"fa fa-" + item.icon}></i>
-          <span>{item.title}</span>
-        </NavLink>
-      );
-    });
-  }
+class AppFooter extends PureComponent {
   render() {
-    return <div className="app-footer">{this.renderFooter()}</div>;
+    const { navs } = this.props;
+    console.log('footer');
+    return (
+      <div className="app-footer">
+        {navs.map((item) => {
+          return (
+            <NavLink key={item.id} to={item.path} exact={item.exact}>
+              <i className={"fa fa-" + item.icon}></i>
+              <span>{item.title}</span>
+            </NavLink>
+          );
+        })}
+      </div>
+    );
   }
 }
 AppFooter.defaultProps = {

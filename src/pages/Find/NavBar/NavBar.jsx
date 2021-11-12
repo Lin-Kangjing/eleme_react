@@ -3,71 +3,35 @@
  * @FilePath: \eleme_react\src\pages\Find\NavBar\NavBar.jsx
  * @Date: 2021-11-05 10:52:58
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-11-05 11:32:31
+ * @LastEditTime: 2021-11-11 10:27:16
  * @author: Lin_kangjing
  */
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 // import GroupState from "../../../../modules/group"
 import "./NavBar.scss";
-class NavBar extends Component {
-  componentWillReceiveProps(props) {
-    let pathname = this.props.location.pathname;
-    let item = 1;
-    // console.log(this.props.activeItem)
-    // switch (pathname) {
-    //   case "/find/coin":
-    //     item = 1;
-    //     break;
-    //   case "/find/record":
-    //     item = 2;
-    //     break;
-    //   default:
-    //     break;
-    // }
-    // this.props.changeActiveItem(item);
-  }
-  componentDidMount() {
-    let pathname = this.props.location.pathname;
-    let item = 1;
-    // console.log(this.props.activeItem)
-    switch (pathname) {
-      case "/find/coin":
-        item = 1;
-        break;
-      case "/find/record":
-        item = 2;
-        break;
-      default:
-        break;
-    }
-    // this.props.changeActiveItem(item);
-  }
-  renderNavs() {
-    let { navs, activeItem } = this.props;
-    return navs.map((item) => {
-      return (
-        <NavLink key={item.id} to={item.path} exact={item.exact}>
-          <div
-            className={
-              "headerItem " +
-              item.name +
-              " " +
-              (item.id === activeItem ? "active" : "")
-            }
-            onClick={this.handleClick}
-          >
-            <i className={"fa fa-" + item.icon}> </i>{" "}
-            <span> {item.title} </span>{" "}
-          </div>{" "}
-        </NavLink>
-      );
-    });
-  }
+class NavBar extends PureComponent {
   render() {
-    // console.log(this.props.activeItem)
-    return <div className="headerBox">{this.renderNavs()} </div>;
+    const { pathname } = this.props.location;
+    const { navs } = this.props;
+    return (
+      <div className="headerBox">
+        {navs.map((item) => {
+          return (
+            <NavLink key={item.id} to={item.path} exact={item.exact}>
+              <div
+                className={['headerItem',item.name,item.path===pathname?'active':''].join(' ') }
+                onClick={this.handleClick}
+              >
+                <i className={"fa fa-" + item.icon}> </i>{" "}
+                <span> {item.title} </span>{" "}
+              </div>{" "}
+            </NavLink>
+          );
+        })}{" "}
+      </div>
+    );
   }
 }
 NavBar.defaultProps = {

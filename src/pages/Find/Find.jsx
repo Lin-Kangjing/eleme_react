@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component } from 'react'
 import { Route } from "react-router-dom"
 import NavBar from "./NavBar/NavBar.jsx"
 // import Record from "./Hpage/Record"

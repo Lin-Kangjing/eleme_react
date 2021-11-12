@@ -3,7 +3,7 @@
  * @FilePath: \eleme_react\src\App.js
  * @Date: 2021-10-14 15:22:20
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-10-26 14:31:52
+ * @LastEditTime: 2021-11-11 17:23:57
  * @author: Lin_kangjing
  */
 import React, { Component } from "react";
@@ -14,52 +14,55 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    this.replaceRouter();
+    console.log(0);
+    // this.replaceRouter();
   }
-  componentDidUpdate() {
+  // componentDidUpdate() {
+  //   console.log(2);
+  //   this.replaceRouter();
+  // }
+  componentWillReceiveProps() {
+    console.log(2,);
     this.replaceRouter();
   }
   // 路由重定向
   replaceRouter() {
-    let { pathname } = this.props.location;
-    let { replace } = this.props.history;
+    const props = this.props;
+    console.log(3,props.location.pathname);
+    let { pathname } = props.location;
+    let { replace } = props.history;
     if (pathname === "/find") {
       replace("/find/coin");
-    }
-    if (pathname === "/") {
+    } else if (pathname === "/") {
       replace("/mine");
     }
-  }
-  // 渲染导航页面
-  renderNavs() {
-    let { navs } = this.props;
-    return (
-      <Switch>
-        {" "}
-        {navs.map((item) => {
-          return (
-            <Route
-              key={item.id}
-              path={item.path}
-              component={item.component}
-              exact={item.exact}
-            />
-          );
-        })}{" "}
-
-      </Switch>
-    );
   }
   // 选择底部的tab
   renderFooter() {
     // let {pathname} = this.props.location;
     // if(pathname==="/mine") return "";
-    return <AppFooter/>
+    return <AppFooter />;
   }
   render() {
+    const { navs } = this.props;
+    console.log(1);
     return (
       <div>
-        {this.renderNavs()} {this.renderFooter()}
+        {
+          <Switch>
+            {navs.map((item) => {
+              return (
+                <Route
+                  key={item.id}
+                  path={item.path}
+                  component={item.component}
+                  exact={item.exact}
+                />
+              );
+            })}
+          </Switch>
+        }
+        <AppFooter />
       </div>
     );
   }
