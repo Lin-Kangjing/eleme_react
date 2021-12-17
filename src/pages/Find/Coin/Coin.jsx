@@ -4,8 +4,7 @@ import Specials from "../Specials/Specials"
 class Coin extends Component{
     render(){
         return(
-            <div>
-                <div className = "blank"></div>
+            <div className="p-t-45">  
                 <Specials />
             </div>
         )

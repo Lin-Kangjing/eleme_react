@@ -1,40 +1,99 @@
 @charset "utf-8";
 /* CSS Document */
 
-body,h1,h3,h2,h4,h5,h6,p,dl,dd,ul,li,ol,td,form,input,fieldset,legend{
-	margin:0; padding:0;
-}  
+body,
+h1,
+h3,
+h2,
+h4,
+h5,
+h6,
+p,
+dl,
+dd,
+ul,
+li,
+ol,
+td,
+form,
+input,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+}
 
-li{list-style:none;}
+li {
+  list-style: none;
+}
 
-a{text-decoration:none; font-size:12px; color:#333;}
+a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #333;
+}
 
-body{
-	font-size:14px; 
-	font-family:"微软雅黑"; 
-	color:#666; 
-	background:$bg-color;
+body {
+  font-size: 14px;
+  font-family: "微软雅黑";
+  color: #666;
+  background: $bg-color;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-img{vertical-align:top; display:block; border:none;}
+img {
+  vertical-align: top;
+  display: block;
+  border: none;
+}
 
-a,input{outline:none;}
+a,
+input {
+  outline: none;
+}
 
-em,i{font-style:normal;}
+em,
+i {
+  font-style: normal;
+}
 
-b,strong,h1,h2,h3,h4,h5,h6{font-weight:normal;}
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
 
-.clear:after{content:""; display:block; clear:both; height:0; visibility:hidden;}
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+html {
+  touch-action: none;
+}
 
-table{border-collapse:collapse;}
+table {
+  border-collapse: collapse;
+}
 
-.border0{border:none;}
+.border0 {
+  border: none;
+}
 
-.fl{float:left;}
+.fl {
+  float: left;
+}
 
-.fr{float:right;}
-
+.fr {
+  float: right;
+}

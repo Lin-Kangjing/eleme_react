@@ -3,33 +3,17 @@
  * @FilePath: \eleme_react\src\App.js
  * @Date: 2021-10-14 15:22:20
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-11-13 20:05:15
+ * @LastEditTime: 2021-12-17 17:03:32
  * @author: Lin_kangjing
  */
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch,Redirect, withRouter } from "react-router-dom";
 import { Home, Order, Mine, Find } from "./pages";
+import SpecialsDetails from './pages/Find/Specials/SpecialsDetails/SpecialsDetails';
 import AppFooter from "./components/AppFooter/index.jsx";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount() {
-    this.replaceRouter();
-  }
-  componentDidUpdate() {
-    this.replaceRouter();
-  }
-  // 路由重定向
-  replaceRouter(props) {
-    props = props || this.props;
-    let { pathname } = props.location;
-    let { replace } = props.history;
-    if (pathname === "/find") {
-      replace("/find/coin");
-    } else if (pathname === "/") {
-      replace("/home");
-    }
-  }
   // 选择底部的tab是否显示
   renderFooter() {
     // let {pathname} = this.props.location;
@@ -43,6 +27,12 @@ class App extends Component {
       <div>
         {
           <Switch>
+            <Route exact path="/" render={() => <Redirect to="/home" />} />
+            <Route exact path="/find" render={() => <Redirect to="/find/coin" />} />
+            <Route path="/find/coin" exact={false} component={Find} >
+              {/* <Route exact={false} path="/find/specialsDetails" component={()=>import('@/pages/Find/SpecialsDetails/SpecialsDetails')}></Route> */}
+              <Route exact={false} path="/find/specialsDetails" component={SpecialsDetails}></Route>
+            </Route>
             {navs.map((item) => {
               return (
                 <Route
@@ -64,22 +54,28 @@ App.defaultProps = {
   navs: [
     {
       id: 1,
-      path: "/Home",
+      path: "/home",
       component: Home,
       exact: false,
     },
     {
       id: 2,
-      path: "/Order",
+      path: "/order",
       component: Order,
       exact: false,
     },
-    {
-      id: 3,
-      path: "/Find",
-      component: Find,
-      exact: false,
-    },
+    // {
+    //   id: 3,
+    //   path: "/find",
+    //   component: Find,
+    //   exact: false,
+    //   route:[{
+    //     id:'3-1',
+    //     path: "/order",
+    //     component: Order,
+    //     exact: false,
+    //   }]
+    // },
     {
       id: 4,
       path: "/mine",
