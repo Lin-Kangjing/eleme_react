@@ -1,7 +1,9 @@
 import React, { PureComponent } from "react";
-import { Route } from "react-router-dom";
-import Login from "./Login/Login.jsx";
-import User from "./User/User.jsx";
+// import { Route } from "react-router-dom";
+// import Login from "./Login/Login.jsx";
+// import User from "./User/User.jsx";
+
+import {renderRoutes} from '@/router';
 import CommonsGroup from "../../modules/group";
 import "./Mine.scss";
 
@@ -27,8 +29,9 @@ class Mine extends PureComponent {
   render() {
     return (
       <div>
-        <Route path="/mine/login" component={Login} />
-        <Route path="/mine/user" component={User} />
+        {/* <Route path="/mine/login" component={Login} />
+        <Route path="/mine/user" component={User} /> */}
+        {renderRoutes(this.props.route.routes)}
       </div>
     );
   }

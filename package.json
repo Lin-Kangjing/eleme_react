@@ -17,14 +17,11 @@
     "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.5",
-    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.1",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "swiper": "^7.2.0",
-    "video-react": "^0.14.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -53,6 +50,7 @@
   },
   "proxy": "http://119.45.129.219:8088",
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "babel-plugin-import": "^1.13.3",
     "eslint-plugin-prettier": "^4.0.0",
     "http-proxy-middleware": "^2.0.1",

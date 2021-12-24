@@ -3,7 +3,7 @@
  * @FilePath: \eleme_react\src\pages\Find\NavBar\NavBar.jsx
  * @Date: 2021-11-05 10:52:58
  * @LastEditors: Lin_kangjing
- * @LastEditTime: 2021-11-11 10:27:16
+ * @LastEditTime: 2021-12-24 14:19:42
  * @author: Lin_kangjing
  */
 import React, { PureComponent } from "react";
@@ -22,7 +22,6 @@ class NavBar extends PureComponent {
             <NavLink key={item.id} to={item.path} exact={item.exact}>
               <div
                 className={['headerItem',item.name,item.path===pathname?'active':''].join(' ') }
-                onClick={this.handleClick}
               >
                 <i className={"fa fa-" + item.icon}> </i>{" "}
                 <span> {item.title} </span>{" "}

@@ -65,7 +65,7 @@ class Specials extends Component {
                     <span className="corner">抽奖</span>
                   </div>
                   <div className="imgWrap">
-                    <NavLink to={"/find/specialsDetails" + item.id}>
+                    <NavLink to={"/find/specialsDetails/" + item.id}>
                       <img src={item.src} alt="" />
                     </NavLink>
                   </div>
